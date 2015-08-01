@@ -14,7 +14,7 @@ protocol SlideNavigationDelegate {
     optional func toggleLeftPanel()
     optional func toggleRightPanel()
     optional func collapseSidePanels()
-    optional func menuSwipeEnabled(enabled: Bool)
+    optional func menuSwipe(enabled: Bool)
 }
 
 class SlideMenuUINavigationController : UINavigationController, SideMenuDelegate {
@@ -26,5 +26,22 @@ class SlideMenuUINavigationController : UINavigationController, SideMenuDelegate
         popToRootViewControllerAnimated(false)
         let viewController = UIStoryboard.mainStoryboard().instantiateViewControllerWithIdentifier(controllerName)
         viewControllers = [viewController];
+    }
+}
+
+extension UIViewController {
+    func toggleLeftSlideMenu() {
+        let slideNavController = navigationController as? SlideMenuUINavigationController
+        slideNavController?.slideNavDelegate?.toggleLeftPanel?()
+    }
+    
+    func toggleRightSlideMenu() {
+        let slideNavController = navigationController as? SlideMenuUINavigationController
+        slideNavController?.slideNavDelegate?.toggleRightPanel?()
+    }
+    
+    func slideMenuSwipe(enabled: Bool) {
+        let slideNavController = navigationController as? SlideMenuUINavigationController
+        slideNavController?.slideNavDelegate?.menuSwipe?(enabled)
     }
 }

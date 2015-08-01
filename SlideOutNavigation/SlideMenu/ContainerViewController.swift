@@ -51,7 +51,7 @@ class ContainerViewController: UIViewController {
 
 extension ContainerViewController: SlideNavigationDelegate {
 
-    func menuSwipeEnabled(enabled: Bool) {
+    func menuSwipe(enabled: Bool) {
         panGestureRecognizer?.enabled = enabled;
     }
     

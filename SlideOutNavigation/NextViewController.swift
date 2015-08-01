@@ -19,8 +19,7 @@ class NextViewController : UIViewController {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-        let slideNavController = navigationController as? SlideMenuUINavigationController
-        slideNavController?.slideNavDelegate?.menuSwipeEnabled?(false)
+        slideMenuSwipe(false)
     }
     
 }

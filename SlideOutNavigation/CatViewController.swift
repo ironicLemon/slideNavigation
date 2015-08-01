@@ -21,19 +21,15 @@ class CatViewController: UIViewController {
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        
-        let slideNavController = navigationController as? SlideMenuUINavigationController
-        slideNavController?.slideNavDelegate?.menuSwipeEnabled?(true)
+        slideMenuSwipe(true)
     }
   
     // TODO can make this a UIViewController extension...
     @IBAction func menuTapped(sender: UIBarButtonItem) {
-        let slideNavController = navigationController as? SlideMenuUINavigationController
-        slideNavController?.slideNavDelegate?.toggleLeftPanel?()
+        toggleLeftSlideMenu()
     }
     
     @IBAction func rightMenuTapped(sender: UIBarButtonItem) {
-        let slideNavController = navigationController as? SlideMenuUINavigationController
-        slideNavController?.slideNavDelegate?.toggleRightPanel?()
+        toggleRightSlideMenu()
     }
 }
